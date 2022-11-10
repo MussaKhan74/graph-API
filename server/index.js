@@ -4,6 +4,7 @@ import { graphqlHTTP } from "express-graphql";
 import schema from "./schema/schema";
 import connectDB from "./config/db";
 import colors from "colors";
+import cors from "cors";
 
 // ENV
 config();
@@ -13,6 +14,8 @@ connectDB();
 const port = process.env.PORT || 5000;
 // APP INITIALIZE
 const app = express();
+// USE CORS
+app.use(cors());
 // GRAPHQL ENDPOINT
 app.use(
   "/graphql",
